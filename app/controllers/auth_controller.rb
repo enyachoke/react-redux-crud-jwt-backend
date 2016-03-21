@@ -11,6 +11,12 @@ class AuthController < ApplicationController
   def profile
     render json: @current_user , serializer: UserSerializer
   end
+
+  def validate_token
+    token = AuthToken.decode(params[:token])
+    render json: {:token_is_valid=>true}
+  end
+
   private
 
   def authentication_payload(user)

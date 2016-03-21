@@ -62,6 +62,6 @@ class ApplicationController < ActionController::API
   end
 
   def user_not_authenticated
-    render json: { errors: ['Not Authenticated'] }, status: :unauthorized
+    render json: {code:'401', message:'unauthorized' }, status: :unauthorized
   end
 end
